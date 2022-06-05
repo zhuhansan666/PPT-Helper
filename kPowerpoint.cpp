@@ -25,7 +25,7 @@ int subMain() {
         EnumChildWindows(NULL,append,(LPARAM)NULL);
         if (setjmp(checked) == 1) // 延时以解决问题
         {
-            Sleep(1000);
+            Sleep(300);
         } else {
             Sleep(10); // 正常延时
         }
