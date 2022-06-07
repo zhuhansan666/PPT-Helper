@@ -55,4 +55,19 @@ if time.strftime("%A",time.localtime()) == "Friday" or debug:
         elif time.time() > timeStamp:
             run(normpath(join(workPath,"kPowerpoint.exe")),shell=True)
         time.sleep(1)
-
+else:
+    timeStamp = float(time.mktime(time.strptime("{}|17:25:00".format(time.strftime("%Y-%m-%d",time.localtime())), "%Y-%m-%d|%H:%M:%S")))
+    waitTime = timeStamp-time.time()
+    if waitTime > 0:
+        time.sleep(waitTime)
+    del waitTime
+    if not debug:
+        try:
+            run("shutdown -s -f -t 0")
+        except Exception:
+            try:
+                run("shutdown -s -f -t 0",shell=True)
+            except Exception:
+                pass
+    else:
+        print("Debug: 执行关机")
